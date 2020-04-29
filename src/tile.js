@@ -36,12 +36,7 @@ export default class Tile{
         this.component.style.position = 'absolute';
         this.component.style.border = '5px solid';
         this.component.style.borderColor = '#eee'
-
-        this.component.addEventListener('click', function(event)
-        {
-            alert(this.number);
-        }, false);
-
+        
         return this.component;
     }
 };

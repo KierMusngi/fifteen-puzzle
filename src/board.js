@@ -33,6 +33,7 @@ export default class Board{
         this.component.style.backgroundColor = '#eee';
         this.component.style.margin = 'auto';
         this.component.style.position = 'relative';
+
         return this.component;
     }
 };
