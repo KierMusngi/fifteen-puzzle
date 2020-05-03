@@ -63,3 +63,23 @@ test('A 125 dimensional tile with row and column of 3 and 4'
     expect(tile.component.style.top).toBe('250px');
     expect(tile.component.style.left).toBe('375px');
 });
+
+test('A 125 dimensional tile with row and column of 3 and 4' 
+ + ' should have the following top and left position respectively.', () => 
+{
+    var tile = new Tile(125, 1, 3, 4);
+    expect(tile.component.style.top).toBe('250px');
+    expect(tile.component.style.left).toBe('375px');
+});
+
+test('A tile should have the ability to exchange location with another tile', () => 
+{
+    var tile1 = new Tile(125, 1, 1, 1);
+    var tile2 = new Tile(125, 2, 1, 2);
+
+    tile1.exchange(tile2);
+    expect(tile1.row).toBe(1);
+    expect(tile1.column).toBe(2);
+    expect(tile1.component.style.top).toBe('0px');
+    expect(tile1.component.style.left).toBe('125px');
+});

@@ -28,6 +28,56 @@ export default class Board{
         }
     }
     
+    tileExhange(tileIndex){
+        if(
+            this.findTileNumberTop(tileIndex).number === 16 ||
+            this.findTileNumberBelow(tileIndex).number === 16 ||
+            this.findTileNumberRight(tileIndex).number === 16 ||
+            this.findTileNumberLeft(tileIndex).number === 16)
+        {
+            var referenceTile = new Tile(
+                this.tiles[tileIndex].dimension, 
+                this.tiles[tileIndex].number, 
+                this.tiles[tileIndex].row, 
+                this.tiles[tileIndex].column);
+    
+            this.tiles[tileIndex].exchange(this.tiles[15]);
+            this.tiles[15].exchange(referenceTile);
+        }
+    }
+
+    findTile(row, column){
+        var tile = {};
+        this.tiles.filter(function(a)
+        {
+            if (a.row === row && a.column === column){
+                tile = a;
+            }
+        });
+
+        return tile;
+    }
+
+    findTileNumberTop(tileIndex){
+        var referenceTile = this.tiles[tileIndex];
+        return this.findTile(referenceTile.row - 1, referenceTile.column);
+    }
+
+    findTileNumberBelow(tileIndex){
+        var referenceTile = this.tiles[tileIndex];
+        return this.findTile(referenceTile.row + 1, referenceTile.column);
+    }
+
+    findTileNumberRight(tileIndex){
+        var referenceTile = this.tiles[tileIndex];
+        return this.findTile(referenceTile.row, referenceTile.column + 1);
+    }
+
+    findTileNumberLeft(tileIndex){
+        var referenceTile = this.tiles[tileIndex];
+        return this.findTile(referenceTile.row, referenceTile.column - 1);
+    }
+    
     render(){
         this.component.className = 'board';
         this.component.style.backgroundColor = '#eee';

@@ -19,6 +19,13 @@ export default class Tile{
         this.component.style.left = (this.column - 1) * this.dimension + 'px';
     }
 
+    exchange(tile){
+        this.row = tile.row;
+        this.column = tile.column;
+        this.component.style.top = tile.component.style.top;
+        this.component.style.left = tile.component.style.left;
+    }
+
     render(){
         if(this.number != 16){
             var numberTag = document.createElement('div');
@@ -34,7 +41,7 @@ export default class Tile{
         this.component.className = 'tile';
         this.component.style.backgroundColor = '#bbb';
         this.component.style.position = 'absolute';
-        this.component.style.border = '5px solid';
+        this.component.style.border = '1px solid';
         this.component.style.borderColor = '#eee'
         
         return this.component;

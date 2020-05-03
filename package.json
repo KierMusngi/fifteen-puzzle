@@ -4,7 +4,8 @@
   "description": "15 Puzzle Javasctipt Excercise",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "repository": {
     "type": "git",
